@@ -23,10 +23,14 @@ const noTransitionConfig = () => ({
 
 // drawer stack
 const DrawerStack = DrawerNavigator({
-    home: { screen: Home },
-    addstudent:{screen:AddStudent},
-        editdata:{screen:EditData},
-    about: { screen: About },
+    home: { screen: Home,  navigationOptions: {
+            title: 'Home Page', }},
+    addstudent:{screen:AddStudent,navigationOptions: {
+    title: 'Add Student Data', }},
+        editdata:{screen:EditData,navigationOptions: {
+                title: 'Student Edit Data', }},
+    about: { screen: About,navigationOptions: {
+            title: 'About', } },
     logout:{screen:Logout}
 }
 ,{
@@ -43,7 +47,6 @@ const DrawerNavigation = StackNavigator({
     headerMode: 'float',
     navigationOptions: ({navigation}) => ({
         headerStyle: {backgroundColor: 'white'},
-        title: 'Logged In to your app!',
         gesturesEnabled: false,
 
     headerLeft: <TouchableOpacity onPress={() => {
@@ -56,8 +59,10 @@ const DrawerNavigation = StackNavigator({
 // login stack
 
 const LoginStack = StackNavigator({
-    login: { screen: Login },
-    register: { screen: Register },
+    login: { screen: Login,navigationOptions: {
+            title: 'Login Page', } },
+    register: { screen: Register,navigationOptions: {
+            title: 'Register Page', } },
 },
     {
         transitionConfig: ()=>fromTop(2000)

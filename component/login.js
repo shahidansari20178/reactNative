@@ -59,18 +59,11 @@ export default class Login extends Component<Props> {
         const value = this._form.getValue(); // use that ref to get the form value
        // alert("username :"+value.username+" password :"+value.password)
         //this.setState({name:value.username,job:value.password})
-        this.registerApi(value);
-        /*if(value!==null)
+
+        if(value!==null)
         {
-            if(value.username==="Shahid@gmail.com" && value.password==="123")
-            {
-                this.props.navigation.navigate('DrawerStack')
-            }
-            else
-            {
-                this.setState({ value: null });;
-            }
-        }*/
+            this.registerApi(value);
+        }
     }
     registerApi=(value)=>
     {

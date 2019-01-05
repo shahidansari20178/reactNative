@@ -1,16 +1,7 @@
 {
   "StudentDetails": [
     {
-      "id": 2,
-      "name": "Shahid",
-      "email": "Shahid123@gmail.com",
-      "password": "123",
-      "gender": "M",
-      "bdate": "03/04/1995",
-      "mobile": "9080939667"
-    },
-    {
-      "name": "parth jikker",
+      "name": "parth jikker  ni krna",
       "email": "Parth@gmail.com",
       "password": "123",
       "gender": "M",

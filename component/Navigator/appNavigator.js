@@ -23,11 +23,20 @@ const noTransitionConfig = () => ({
 
 // drawer stack
 const DrawerStack = DrawerNavigator({
-    home: { screen: Home,  navigationOptions: {
-            title: 'Home Page', }},
-    addstudent:{screen:AddStudent,navigationOptions: {
-    title: 'Add Student Data', }},
-        editdata:{screen:EditData,navigationOptions: {
+    home: {
+        screen: Home,
+        navigationOptions: {
+            title: 'Home Page',
+        }
+        },
+    addstudent:
+        {screen:AddStudent,
+            navigationOptions: {
+    title: 'Add Student Data',
+     }},
+        editdata:
+            {screen:EditData,
+                navigationOptions: {
                 title: 'Student Edit Data', }},
     about: { screen: About,navigationOptions: {
             title: 'About', } },
@@ -37,7 +46,7 @@ const DrawerStack = DrawerNavigator({
     gesturesEnabled: false
 },
     {
-        transitionConfig:()=>fromTop(3000)
+        transitionConfig:()=>zoomOut(1000)
     })
 
 const DrawerNavigation = StackNavigator({
@@ -60,12 +69,12 @@ const DrawerNavigation = StackNavigator({
 
 const LoginStack = StackNavigator({
     login: { screen: Login,navigationOptions: {
-            title: 'Login Page', } },
+            title: 'Login Page' ,header:null} },
     register: { screen: Register,navigationOptions: {
             title: 'Register Page', } },
 },
     {
-        transitionConfig: ()=>fromTop(2000)
+        transitionConfig: ()=>zoomOut(1000)
     }
     ,{
     headerMode: 'float',
@@ -90,22 +99,3 @@ export default PrimaryNav
 
 
 
-/*Animation*/
-
-
-const handleCustomTransition = ({ scenes }) => {
-    const prevScene = scenes[scenes.length - 2];
-    const nextScene = scenes[scenes.length - 1];
-
-    // Custom transitions go there
-    if (prevScene
-        && prevScene.route.routeName === 'home'
-        && nextScene.route.routeName === 'about') {
-        return zoomIn();
-    } else if (prevScene
-        && prevScene.route.routeName === 'login'
-        && nextScene.route.routeName === 'register') {
-        return flipY(3000);
-    }
-    return fromLeft();
-}
